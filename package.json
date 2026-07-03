@@ -1,0 +1,31 @@
+{
+  "name": "tss",
+  "version": "0.1.0",
+  "private": true,
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsgo",
+    "start": "node dist/index.js",
+    "dev": "tsgo --watch",
+    "typecheck": "tsgo --noEmit",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint . --fix",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "quality": "npm run format:check && npm run lint && npm run typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.0",
+    "@typescript/native-preview": "^7.0.0-dev.20260703.1",
+    "oxfmt": "^0.57.0",
+    "oxlint": "^1.72.0"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
