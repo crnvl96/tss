@@ -21,7 +21,8 @@ Quick orientation for AI coding agents working in this repo.
 
 Consult before non-trivial changes:
 
-- `docs/scope.md` — scope + **Key Technical Decisions**
+- `docs/overview.md` — what the project is
+- `docs/decisions.md` — **Key Technical Decisions**
 - `docs/dependencies.md` — full dependency list
 - `README.md` — human entry point, quickstart, and full npm script table
 

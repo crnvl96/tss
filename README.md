@@ -8,9 +8,10 @@ embedding model, and stores chunks + vectors in Postgres (with the `pgvector`
 extension). A `/search` endpoint embeds the query and returns the top-k
 matches via pgvector similarity search.
 
-See [`docs/scope.md`](docs/scope.md) for the full design and **Key Technical
-Decisions**, [`docs/dependencies.md`](docs/dependencies.md) for the dependency
-list, or [`AGENTS.md`](AGENTS.md) for AI-agent orientation.
+See [`docs/overview.md`](docs/overview.md) for what this project is,
+[`docs/decisions.md`](docs/decisions.md) for the key technical decisions,
+and [`docs/dependencies.md`](docs/dependencies.md) for the dependency
+list. [`AGENTS.md`](AGENTS.md) is the agent-oriented guide.
 
 ## Quickstart
 
@@ -61,6 +62,7 @@ The app's entry is `dist/index.js` (matches `package.json#main`).
 
 ## Documentation
 
-- [`docs/scope.md`](docs/scope.md) — project scope, stack, and **Key Technical Decisions** (source of truth for chunking strategy, idempotency, schema versioning, env loading, dev runner).
+- [`docs/overview.md`](docs/overview.md) — what the project is and does.
+- [`docs/decisions.md`](docs/decisions.md) — **Key Technical Decisions** (source of truth for chunking strategy, idempotency, schema versioning, env loading, dev runner).
 - [`docs/dependencies.md`](docs/dependencies.md) — runtime, dev, and non-npm dependencies with install notes.
 - [`AGENTS.md`](AGENTS.md) — agent-oriented project guide (stack, layout, dev workflow).
