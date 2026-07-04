@@ -22,7 +22,7 @@ Upload a doc, ask a natural-language question, get back the most relevant passag
 
 2. **Local infra**:
    - Temporal CLI for the dev server
-   - `pgvector/pgvector:pg18` Docker image for Postgres
+   - `pgvector/pgvector:pg18` Postgres+pgvector container, orchestrated via `docker compose` (see `docker-compose.yml` at the repo root; the `db:up` / `db:down` / `db:reset` / `db:logs` npm scripts wrap it)
    - Drizzle Kit for migrations
 
 3. **HTTP layer**: Hono with `@hono/node-server` for the Node 24 adapter; `zod` + `@hono/zod-validator` for typed request/response validation.
