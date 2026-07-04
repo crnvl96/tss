@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { app } from "./server.js";
+import { app } from "../src/server.js";
 
 describe("GET /", () => {
   it("returns hello world as text/plain", async () => {
