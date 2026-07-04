@@ -64,10 +64,11 @@ A concise, complete list of everything the project needs installed.
 ### Dev (npm)
 15. `drizzle-kit` — migration generation/apply CLI
 16. `pino-pretty` — readable dev log output (optional but recommended)
+17. `vitest` — test runner
 
 ### Not via npm
-17. **Temporal CLI** — binary for the dev server. Install via Homebrew (`brew install temporal`) or `temporal.io/download`.
-18. **`pgvector/pgvector:pg16` Docker image** — pulled via `docker pull pgvector/pgvector:pg16`.
+18. **Temporal CLI** — binary for the dev server. Install via Homebrew (`brew install temporal`) or `temporal.io/download`.
+19. **`pgvector/pgvector:pg16` Docker image** — pulled via `docker pull pgvector/pgvector:pg16`.
 
 ### Notes
 - The embedding model itself (e.g. `Xenova/all-MiniLM-L6-v2`) is downloaded at first use, not declared as a dep.
