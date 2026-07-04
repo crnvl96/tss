@@ -71,7 +71,7 @@ A concise, complete list of everything the project needs installed.
 ### Not via npm
 
 18. **Temporal CLI** — binary for the dev server. Install via Homebrew (`brew install temporal`) or `temporal.io/download`.
-19. **`pgvector/pgvector:pg16` Docker image** — pulled via `docker pull pgvector/pgvector:pg16`.
+19. **`pgvector/pgvector:pg18` Docker image** — pulled via `docker pull pgvector/pgvector:pg18`.
 
 ### Notes
 
