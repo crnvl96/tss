@@ -35,30 +35,30 @@ npm run db:up
 # Terminal A — recompile on change:
 npm run dev
 # Terminal B — restart the app on `dist/` change:
-node --watch dist/index.js
+node --watch dist/main.js
 ```
 
-The app's entry is `dist/index.js` (matches `package.json#main`).
+The app's entry is `dist/main.js` (matches `package.json#main`).
 
 ## NPM Scripts
 
-| Script         | Command                                                   | When to use                                                                                                                        |
-| -------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `dev`          | `tsgo --watch`                                            | Active development. Recompiles on change; pair with `node --watch dist/index.js` in a second terminal to actually restart the app. |
-| `build`        | `tsgo`                                                    | Produce a fresh `dist/` for production.                                                                                            |
-| `start`        | `node dist/index.js`                                      | Run the compiled app. Requires a prior `build`.                                                                                    |
-| `typecheck`    | `tsgo --noEmit`                                           | Type-check without emitting. Cheap; safe to run any time.                                                                          |
-| `test`         | `vitest run --passWithNoTests`                            | Run the full test suite once (CI-friendly).                                                                                        |
-| `test:watch`   | `vitest`                                                  | Run tests in watch mode during development.                                                                                        |
-| `lint`         | `oxlint .`                                                | Check for lint issues.                                                                                                             |
-| `lint:fix`     | `oxlint . --fix`                                          | Auto-fix lint issues.                                                                                                              |
-| `format`       | `oxfmt`                                                   | Format all files.                                                                                                                  |
-| `format:check` | `oxfmt --check`                                           | Verify formatting without changing files (CI-friendly).                                                                            |
-| `quality`      | `format:check && lint && typecheck && test`               | Full quality gate. Run before opening a PR or pushing.                                                                             |
-| `db:up`        | `docker compose up -d postgres`                           | Start the Postgres+pgvector container in the background. First run pulls the image.                                                |
-| `db:down`      | `docker compose down`                                     | Stop the container. Preserves the `tss-pgdata` volume.                                                                             |
-| `db:reset`     | `docker compose down -v && docker compose up -d postgres` | Wipe the data volume and restart the container from scratch.                                                                       |
-| `db:logs`      | `docker compose logs -f postgres`                         | Tail the Postgres container logs.                                                                                                  |
+| Script         | Command                                                   | When to use                                                                                                                       |
+| -------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `dev`          | `tsgo --watch`                                            | Active development. Recompiles on change; pair with `node --watch dist/main.js` in a second terminal to actually restart the app. |
+| `build`        | `tsgo`                                                    | Produce a fresh `dist/` for production.                                                                                           |
+| `start`        | `node dist/main.js`                                       | Run the compiled app. Requires a prior `build`.                                                                                   |
+| `typecheck`    | `tsgo --noEmit -p tsconfig.test.json`                     | Type-check without emitting. Cheap; safe to run any time.                                                                         |
+| `test`         | `vitest run --passWithNoTests`                            | Run the full test suite once (CI-friendly).                                                                                       |
+| `test:watch`   | `vitest`                                                  | Run tests in watch mode during development.                                                                                       |
+| `lint`         | `oxlint .`                                                | Check for lint issues.                                                                                                            |
+| `lint:fix`     | `oxlint . --fix`                                          | Auto-fix lint issues.                                                                                                             |
+| `format`       | `oxfmt`                                                   | Format all files.                                                                                                                 |
+| `format:check` | `oxfmt --check`                                           | Verify formatting without changing files (CI-friendly).                                                                           |
+| `quality`      | `format:check && lint && typecheck && test`               | Full quality gate. Run before opening a PR or pushing.                                                                            |
+| `db:up`        | `docker compose up -d postgres`                           | Start the Postgres+pgvector container in the background. First run pulls the image.                                               |
+| `db:down`      | `docker compose down`                                     | Stop the container. Preserves the `tss-pgdata` volume.                                                                            |
+| `db:reset`     | `docker compose down -v && docker compose up -d postgres` | Wipe the data volume and restart the container from scratch.                                                                      |
+| `db:logs`      | `docker compose logs -f postgres`                         | Tail the Postgres container logs.                                                                                                 |
 
 ## Documentation
 

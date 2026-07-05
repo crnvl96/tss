@@ -12,4 +12,4 @@ These are the source of truth; consult them before changing the relevant code.
 7. **Schema versioning** — `model_version` column on the chunks table to support selective re-embedding when the model changes.
 8. **Health + observability** — `/health` endpoint on the API; structured logs via `pino`; one log line per workflow activity. Workflow history only helps if logs correlate.
 9. **Environment loading** — `node --env-file=.env` (Node 20.6+ built-in; no `dotenv` dep).
-10. **Dev runner** — `tsgo --watch` (compile + typecheck) running alongside `node --watch dist/index.js` (restart on change). Two terminals.
+10. **Dev runner** — `tsgo --watch` (compile + typecheck) running alongside `node --watch dist/main.js` (restart on change). Two terminals.
