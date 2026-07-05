@@ -26,7 +26,8 @@
     "db:logs": "docker compose logs -f postgres",
     "db:init": "node --env-file=.env scripts/db-init.mjs",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate"
+    "db:migrate": "drizzle-kit migrate",
+    "worker": "node --env-file=.env scripts/worker.mjs"
   },
   "dependencies": {
     "@hono/node-server": "^2.0.8",

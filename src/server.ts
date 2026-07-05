@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { logger } from "./logger.js";
+import { ingestRoute } from "./routes/ingest.js";
 import { searchRoute } from "./routes/search.js";
 
 export const app = new Hono();
@@ -17,6 +18,8 @@ app.use("*", async (c, next) => {
     "request",
   );
 });
+
+app.route("/ingest", ingestRoute);
 
 app.route("/search", searchRoute);
 
