@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { logger } from "./logger.js";
+import { searchRoute } from "./routes/search.js";
 
 export const app = new Hono();
 
@@ -17,6 +18,6 @@ app.use("*", async (c, next) => {
   );
 });
 
-app.get("/", (c) => c.text("hello world"));
+app.route("/search", searchRoute);
 
 app.get("/health", (c) => c.json({ status: "ok" }));
