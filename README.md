@@ -31,7 +31,11 @@ cp .env.example .env
 # 4. Start the Postgres+pgvector container (pulls the image on first run)
 npm run db:up
 
-# 5. Start the dev loop in two terminals
+# 5. Enable the pgvector extension and apply the schema
+npm run db:init
+npm run db:migrate
+
+# 6. Start the dev loop in two terminals
 # Terminal A — recompile on change:
 npm run dev
 # Terminal B — restart the app on `dist/` change:
@@ -56,8 +60,11 @@ The app's entry is `dist/main.js` (matches `package.json#main`).
 | `format:check` | `oxfmt --check`                                           | Verify formatting without changing files (CI-friendly).                                                                           |
 | `quality`      | `format:check && lint && typecheck && test`               | Full quality gate. Run before opening a PR or pushing.                                                                            |
 | `db:up`        | `docker compose up -d postgres`                           | Start the Postgres+pgvector container in the background. First run pulls the image.                                               |
+| `db:init`      | `node --env-file=.env scripts/db-init.mjs`                | Enable the `vector` extension in the Postgres container. Idempotent — safe to run multiple times.                                 |
+| `db:generate`  | `drizzle-kit generate`                                    | Generate SQL migration files from `src/db/schema.ts`.                                                                             |
+| `db:migrate`   | `drizzle-kit migrate`                                     | Apply pending migrations to the dev container.                                                                                    |
 | `db:down`      | `docker compose down`                                     | Stop the container. Preserves the `tss-pgdata` volume.                                                                            |
-| `db:reset`     | `docker compose down -v && docker compose up -d postgres` | Wipe the data volume and restart the container from scratch.                                                                      |
+| `db:reset`     | `docker compose down -v && docker compose up -d postgres` | Wipe the data volume and restart the container from scratch. Run `db:init` + `db:migrate` afterwards.                             |
 | `db:logs`      | `docker compose logs -f postgres`                         | Tail the Postgres container logs.                                                                                                 |
 
 ## Documentation
