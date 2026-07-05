@@ -8,11 +8,6 @@ embedding model, and stores chunks + vectors in Postgres (with the `pgvector`
 extension). A `/search` endpoint embeds the query and returns the top-k
 matches via pgvector similarity search.
 
-See [`docs/overview.md`](docs/overview.md) for what this project is and its stack,
-[`docs/decisions.md`](docs/decisions.md) for the key technical decisions,
-[`docs/dependencies.md`](docs/dependencies.md) for the dependency list,
-and [`docs/structure.md`](docs/structure.md) for the file layout.
-
 ## Quickstart
 
 Prerequisites: [mise](https://mise.jdx.dev/) (for the pinned Node version)
@@ -67,9 +62,3 @@ The app's entry is `dist/main.js` (matches `package.json#main`).
 | `db:reset`     | `docker compose down -v && docker compose up -d postgres` | Wipe the data volume and restart the container from scratch. Run `db:init` + `db:migrate` afterwards.                             |
 | `db:logs`      | `docker compose logs -f postgres`                         | Tail the Postgres container logs.                                                                                                 |
 
-## Documentation
-
-- [`docs/overview.md`](docs/overview.md) — what the project is and its stack.
-- [`docs/decisions.md`](docs/decisions.md) — **Key Technical Decisions** (source of truth for chunking strategy, idempotency, schema versioning, env loading, dev runner).
-- [`docs/dependencies.md`](docs/dependencies.md) — runtime, dev, and non-npm dependencies with install notes.
-- [`docs/structure.md`](docs/structure.md) — file and directory layout.
